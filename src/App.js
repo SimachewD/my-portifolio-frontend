@@ -25,7 +25,7 @@ function App() {
 
   return (
   <>  
-    
+    hi
     <BrowserRouter>
       {path !== '/' && user ? <NavBar />:null}
       <Routes>
