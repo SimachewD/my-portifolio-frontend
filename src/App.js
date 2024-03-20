@@ -26,7 +26,7 @@ function App() {
   return (
   <>  
     hi
-    <BrowserRouter>
+    <BrowserRouter basename="/my-portifolio-frontend">
       {path !== '/' && user ? <NavBar />:null}
       <Routes>
         <Route path='/' element={
