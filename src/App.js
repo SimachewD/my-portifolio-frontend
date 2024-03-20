@@ -25,8 +25,7 @@ function App() {
 
   return (
   <>  
-    hi
-    <BrowserRouter basename="/my-portifolio-frontend">
+   <BrowserRouter basename={process.env.PUBLIC_URL}>
       {path !== '/' && user ? <NavBar />:null}
       <Routes>
         <Route path='/' element={
