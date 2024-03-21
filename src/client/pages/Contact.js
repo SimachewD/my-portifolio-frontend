@@ -23,7 +23,7 @@ const Contact = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch(`http://192.168.0.146:10000/sime/api/postmessage`, {
+            const response = await fetch(`https://my-first-service-h7ag.onrender.com/sime/api/postmessage`, {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',

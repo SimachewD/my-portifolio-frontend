@@ -9,7 +9,7 @@ const About = () => {
 
     const fetchAbout = async () => {
         try {
-            const response = await fetch("http://192.168.0.146:10000/sime/api/");
+            const response = await fetch("https://my-first-service-h7ag.onrender.com/sime/api/");
             const json = await response.json();
 
             if (response.ok) {

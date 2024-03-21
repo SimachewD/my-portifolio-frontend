@@ -5,7 +5,7 @@ const Home = () => {
 
     const fetchProjects = async () => {
         try {
-            const response = await fetch("http://192.168.0.146:10000/sime/api/");
+            const response = await fetch("https://my-first-service-h7ag.onrender.com/sime/api/");
             const json = await response.json();
 
             if (response.ok) {
@@ -37,7 +37,7 @@ const Home = () => {
                 {projects && (
                     projects.map(project => (
                         <div key={project._id} className="bg-white rounded-lg overflow-hidden shadow-md">
-                            <img className="w-full h-48 object-cover object-center" src={"http://192.168.0.146:10000/uploads/" + project.imageUrl} alt='project_image' />
+                            <img className="w-full h-48 object-cover object-center" src={"https://my-first-service-h7ag.onrender.com/uploads/" + project.imageUrl} alt='project_image' />
                             <div className='px-6 py-8'>
                                 <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                                 <p className="text-gray-700">{project.description}</p>
