@@ -1,5 +1,6 @@
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 
 import Login from './admin/components/Login';
 import Footer from './client/components/Footer';
@@ -25,7 +26,7 @@ function App() {
 
   return (
   <>  
-   <BrowserRouter basename={process.env.PUBLIC_URL}>
+   <Router basename={process.env.PUBLIC_URL}>
       {path !== '/' && user ? <NavBar />:null}
       <Routes>
         <Route path='/' element={
@@ -47,7 +48,7 @@ function App() {
           <Route path='/admin/about' element={ user ? <AboutMe />:<Login />} />
           <Route path='/admin/messages' element={ user ? <Messages />:<Login />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
 
   </>
   );
