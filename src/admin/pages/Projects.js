@@ -31,7 +31,7 @@ const Projects = () => {
 
   const fetchProjects = async () => {
     try {
-      const response = await fetch("http://192.168.0.146:10000/sime/api/",{
+      const response = await fetch("https://my-first-service-h7ag.onrender.com/sime/api/",{
         headers: { Authorization:`Bearer ${user.token}` },
     });
       if (!response.ok) {
@@ -49,7 +49,7 @@ const Projects = () => {
 
   const handleDeleteProject = async (projectId) => {
     try {
-      const response = await fetch(`http://localhost:10000/sime/api/deleteproject/${projectId}`, {
+      const response = await fetch(`https://my-first-service-h7ag.onrender.com/sime/api/${projectId}`, {
         method: 'DELETE',
         headers: { Authorization:`Bearer ${user.token}` },
       });
@@ -84,7 +84,7 @@ const Projects = () => {
     formData.append('image', newProject.imageFile);
   
     try {
-      const response = await fetch(`http://192.168.0.146:10000/sime/api/addproject`, {
+      const response = await fetch(`https://my-first-service-h7ag.onrender.com/sime/api/addproject`, {
         method: 'POST',
         body: formData,
         headers: { Authorization:`Bearer ${user.token}` },
@@ -114,7 +114,7 @@ const Projects = () => {
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {projects.map(project => (
           <div key={project._id} className="bg-white rounded-lg overflow-hidden shadow-md">
-            <img className="w-full h-48 object-cover object-center" src={"http://localhost:10000/uploads/" + project.imageUrl} alt='project_image' />
+            <img className="w-full h-48 object-cover object-center" src={"https://my-first-service-h7ag.onrender.com/sime/api/uploads/" + project.imageUrl} alt='project_image' />
             <div className="px-6 py-4">
               <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
               <p className="text-gray-700 text-base">{project.description}</p>

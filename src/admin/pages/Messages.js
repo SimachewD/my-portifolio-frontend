@@ -16,7 +16,7 @@ const Messages = () => {
 
   const fetchMessages = async () => {
     try {
-      const response = await fetch("http://192.168.0.146:10000/sime/api/", {
+      const response = await fetch("https://my-first-service-h7ag.onrender.com/sime/api/", {
         headers: { Authorization:`Bearer ${user.token}` }}
       );
       if (!response.ok) {
@@ -34,7 +34,7 @@ const Messages = () => {
 
   const handleDeleteProject = async (messageId) => {
     try {
-      const response = await fetch(`http://192.168.0.146:10000/sime/api/deletemessage/${messageId}`, {
+      const response = await fetch(`https://my-first-service-h7ag.onrender.com/sime/api/deletemessage/${messageId}`, {
         method: 'DELETE',
         headers: { Authorization:`Bearer ${user.token}` },
       });

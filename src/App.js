@@ -27,7 +27,7 @@ function App() {
   return (
   <>  
    <BrowserRouter basename={process.env.PUBLIC_URL}>
-      {path !== '/' && user ? <NavBar />:null}
+      {path !== '/my-portifolio-frontend/' && user ? <NavBar />:null}
       <Routes>
         <Route path='/' element={
               <div className="flex flex-col md:grid md:grid-cols-4 md:gap-4 bg-slate-50 ">

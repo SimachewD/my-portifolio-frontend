@@ -20,7 +20,7 @@ const AboutMe = () => {
 
   const fetchSections = async () => {
     try {
-      const response = await fetch("http://192.168.0.146:10000/sime/api/", {
+      const response = await fetch("https://my-first-service-h7ag.onrender.com/sime/api/", {
         headers: { Authorization:`Bearer ${user.token}` },
       });
       
@@ -53,7 +53,7 @@ const AboutMe = () => {
 
   const handleFormSubmit = async (key) => {
     try {
-      const response = await fetch(`http://192.168.0.146:10000/sime/api/admin/updateabout`, {
+      const response = await fetch(`https://my-first-service-h7ag.onrender.com/sime/api/admin/updateabout`, {
         method: 'PATCH',
         headers: { Authorization:`Bearer ${user.token}` },
         body: JSON.stringify({ [key]: aboutMe[key] }),

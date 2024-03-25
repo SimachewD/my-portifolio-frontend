@@ -23,7 +23,7 @@ const AdminDashboard = () => {
 
   const countData = async () => {
     try {
-      const response = await fetch("http://192.168.0.146:10000/sime/api/", {
+      const response = await fetch("https://my-first-service-h7ag.onrender.com/sime/api/", {
         headers: { Authorization:`Bearer ${user.token}` },
     });
       if (response.ok) {
@@ -89,7 +89,7 @@ const AdminDashboard = () => {
     e.preventDefault();
     try {
       const email = user.email;
-      const response = await fetch("http://192.168.0.146:10000/sime/api/admin/changepassword", {
+      const response = await fetch("https://my-first-service-h7ag.onrender.com/sime/api/admin/changepassword", {
         method: 'PATCH',
         headers: { Authorization:`Bearer ${user.token}`,
                   'Content-Type': 'application/json' },

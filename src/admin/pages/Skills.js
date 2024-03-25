@@ -17,7 +17,7 @@ const AdminSkills = () => {
 
   const fetchSkills = async () => {
     try {
-      const response = await fetch("http://192.168.0.146:10000/sime/api/", {
+      const response = await fetch("https://my-first-service-h7ag.onrender.com/sime/api/", {
         headers: { Authorization:`Bearer ${user.token}` },
       });
       if (!response.ok) {
@@ -35,7 +35,7 @@ const AdminSkills = () => {
 
   const handleDeleteSkill = async (skillId) => {
     try {
-      const response = await fetch(`http://192.168.0.146:10000/sime/api/deleteskill/${skillId}`, {
+      const response = await fetch(`https://my-first-service-h7ag.onrender.com/sime/api/deleteskill/${skillId}`, {
         method: 'DELETE',
         headers: { Authorization:`Bearer ${user.token}` },
 
@@ -52,7 +52,7 @@ const AdminSkills = () => {
   const handleAddSkill = async (e) => {
    e.preventDefault();
     try {
-      const response = await fetch(`http://192.168.0.146:10000/sime/api/addskill`, {
+      const response = await fetch(`https://my-first-service-h7ag.onrender.com/sime/api/addskill`, {
         method: 'POST',
         headers: { Authorization:`Bearer ${user.token}` },
         body: JSON.stringify(newSkill)
