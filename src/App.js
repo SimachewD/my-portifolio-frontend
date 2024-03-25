@@ -26,7 +26,7 @@ function App() {
 
   return (
   <>  
-   <BrowserRouter basename={process.env.PUBLIC_URL}>
+   <Router basename={process.env.PUBLIC_URL}>
       {path !== '/my-portifolio-frontend/' && user ? <NavBar />:null}
       <Routes>
         <Route path='/' element={
@@ -48,7 +48,7 @@ function App() {
           <Route path='/admin/about' element={ user ? <AboutMe />:<Login />} />
           <Route path='/admin/messages' element={ user ? <Messages />:<Login />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
 
   </>
   );
