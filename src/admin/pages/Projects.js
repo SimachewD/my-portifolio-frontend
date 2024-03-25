@@ -49,7 +49,7 @@ const Projects = () => {
 
   const handleDeleteProject = async (projectId) => {
     try {
-      const response = await fetch(`https://my-first-service-h7ag.onrender.com/sime/api/${projectId}`, {
+      const response = await fetch(`https://my-first-service-h7ag.onrender.com/sime/api/deleteprojects/${projectId}`, {
         method: 'DELETE',
         headers: { Authorization:`Bearer ${user.token}` },
       });
@@ -114,7 +114,7 @@ const Projects = () => {
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {projects.map(project => (
           <div key={project._id} className="bg-white rounded-lg overflow-hidden shadow-md">
-            <img className="w-full h-48 object-cover object-center" src={"https://my-first-service-h7ag.onrender.com/sime/api/uploads/" + project.imageUrl} alt='project_image' />
+            <img className="w-full h-48 object-cover object-center" src={"https://my-first-service-h7ag.onrender.com/uploads/" + project.imageUrl} alt='project_image' />
             <div className="px-6 py-4">
               <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
               <p className="text-gray-700 text-base">{project.description}</p>

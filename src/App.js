@@ -1,6 +1,5 @@
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { HashRouter as Router } from 'react-router-dom';
 
 import Login from './admin/components/Login';
 import Footer from './client/components/Footer';
@@ -26,8 +25,8 @@ function App() {
 
   return (
   <>  
-   <Router basename={process.env.PUBLIC_URL}>
-      {path !== '/my-portifolio-frontend/' && user ? <NavBar />:null}
+   <BrowserRouter basename={process.env.PUBLIC_URL}>
+      {path !== '/my-portifolio-frontend' && user ? <NavBar />:null}
       <Routes>
         <Route path='/' element={
               <div className="flex flex-col md:grid md:grid-cols-4 md:gap-4 bg-slate-50 ">
@@ -48,7 +47,7 @@ function App() {
           <Route path='/admin/about' element={ user ? <AboutMe />:<Login />} />
           <Route path='/admin/messages' element={ user ? <Messages />:<Login />} />
       </Routes>
-    </Router>
+    </BrowserRouter>
 
   </>
   );
