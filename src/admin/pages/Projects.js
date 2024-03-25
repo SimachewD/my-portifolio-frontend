@@ -49,7 +49,7 @@ const Projects = () => {
 
   const handleDeleteProject = async (projectId) => {
     try {
-      const response = await fetch(`https://my-first-service-h7ag.onrender.com/sime/api/deleteprojects/${projectId}`, {
+      const response = await fetch(`https://my-first-service-h7ag.onrender.com/sime/api/deleteproject/${projectId}`, {
         method: 'DELETE',
         headers: { Authorization:`Bearer ${user.token}` },
       });
