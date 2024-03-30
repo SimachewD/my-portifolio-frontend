@@ -27,7 +27,7 @@ function App() {
 const router = createBrowserRouter(
   createRoutesFromElements(
       <Route element = {path !== '/' && user ? <NavBar />:null}>  
-        <Route path='/' element={
+        <Route index element={
               <div className="flex flex-col md:grid md:grid-cols-4 md:gap-4 bg-slate-50 ">
                 <div className="sticky shadow-2xl top-0 md:row-span-2 md:col-span-1"><Navbar /></div>
                 <div className="md:ml-4 md:col-span-3">
