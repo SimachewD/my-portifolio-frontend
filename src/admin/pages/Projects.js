@@ -51,7 +51,7 @@ const Projects = () => {
     try {
       const response = await fetch(`https://my-first-service-h7ag.onrender.com/sime/api/deleteproject/${projectId}`, {
         method: 'DELETE',
-        headers: { Authorization:`Bearer ${user.token}` },
+        headers: { Authorization:`Bearer ${user.token}` }, 
       });
       if (!response.ok) {
         throw new Error('Failed to delete project');
