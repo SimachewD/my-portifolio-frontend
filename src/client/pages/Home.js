@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 
 const Home = () => {
     const [projects, setProjects] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const fetchProjects = async () => {
         try {
@@ -16,6 +17,8 @@ const Home = () => {
             }
         } catch (error) {
             console.error("Fetch error:", error);
+        } finally{
+            setLoading(false);
         }
     };
 
@@ -47,7 +50,9 @@ const Home = () => {
                 )} 
             </section>
 
-            { projects.length===0 ? (
+            {loading && ( <p className='text-center text-3xl'>Loading...</p>)}
+
+            { projects.length===0 && !loading ? (
                 <h1 className="text-center mb-8 text-red-600">There are no projects at the moment</h1>
             ): null}
 

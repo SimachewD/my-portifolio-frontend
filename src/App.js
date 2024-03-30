@@ -1,5 +1,5 @@
 
-import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Login from './admin/components/Login';
 import Footer from './client/components/Footer';
@@ -23,36 +23,33 @@ function App() {
 
   const { user } = useAuthContext();
 
-
-const router = createBrowserRouter(
-  createRoutesFromElements(
-      <Route element = {path !== '/' && user ? <NavBar />:null}>  
-        <Route index element={
+  return (
+  <>  
+   <BrowserRouter basename={process.env.PUBLIC_URL}>
+      {path !== '/my-portifolio-frontend' && user ? <NavBar />:null}
+      <Routes>
+        <Route path='/' element={
               <div className="flex flex-col md:grid md:grid-cols-4 md:gap-4 bg-slate-50 ">
                 <div className="sticky shadow-2xl top-0 md:row-span-2 md:col-span-1"><Navbar /></div>
                 <div className="md:ml-4 md:col-span-3">
                   <div><Home /></div>
                   <div><About /></div>
                   <div><Skills /></div>
-                  <div><Contact /></div> 
+                  <div><Contact /></div>
                 </div>
                 <div className="col-span-3"><Footer /></div>
             </div>}  />
 
 
-          <Route path='/admin/home' element={ user ? <AdminDashboard />:<Login />} />
+          <Route path='/admin' element={ user ? <AdminDashboard />:<Login />} />
           <Route path='/admin/projects' element={ user ? <Projects />:<Login />} />
           <Route path='/admin/skills' element={ user ? <AdminSkills />:<Login />} />
           <Route path='/admin/about' element={ user ? <AboutMe />:<Login />} />
           <Route path='/admin/messages' element={ user ? <Messages />:<Login />} />
-      </Route>)
-)
+      </Routes>
+    </BrowserRouter>
 
-
-  return (
-  
-   <RouterProvider router={router} />
-
+  </>
   );
 }
 
