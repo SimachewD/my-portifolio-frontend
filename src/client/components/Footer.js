@@ -1,6 +1,7 @@
 
 
 import { FaGithub, FaLinkedinIn, FaStackOverflow, FaFreeCodeCamp, FaFacebook, FaInstagram, FaTelegram, FaEnvelope } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 
 
@@ -24,6 +25,7 @@ const Footer = () => {
             <a href="https://www.instagram.com/Simachew_dw/" className="px-4"><FaInstagram /></a>
             <a href="https://t.me/Simachew_dw" className="px-4"><FaTelegram /></a>
             <a href="#h" className="px-4"><FaEnvelope /></a>
+            <Link to="admin" className="text-white font-bold text-lg">-</Link>
           </div>          
       </div>
     </footer>
