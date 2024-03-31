@@ -1,5 +1,5 @@
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider, Navigate } from 'react-router-dom';
 
 import Login from './admin/components/Login';
 import Footer from './client/components/Footer';
@@ -19,16 +19,12 @@ import { useAuthContext } from './admin/hooks/useAuthContext';
 
 function App() {
 
-  const path = window.location.pathname;
-
   const { user } = useAuthContext();
 
-  return (
-  <>  
-   <BrowserRouter basename={process.env.PUBLIC_URL}>
-      {path !== '/my-portifolio-frontend' && user ? <NavBar />:null}
-      <Routes>
-        <Route path='/' element={
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route path='/my-portifolio-frontend'>
+        <Route index element={
               <div className="flex flex-col md:grid md:grid-cols-4 md:gap-4 bg-slate-50 ">
                 <div className="sticky shadow-2xl top-0 md:row-span-2 md:col-span-1"><Navbar /></div>
                 <div className="md:ml-4 md:col-span-3">
@@ -40,16 +36,23 @@ function App() {
                 <div className="col-span-3"><Footer /></div>
             </div>}  />
 
+        <Route path='admin' element = { user ? <NavBar />:null}>
+            <Route index element={ user ? <AdminDashboard />:<Login />} />
+            <Route path='login' element = { !user ? <Login />:<Navigate to={'../home'} />} /> 
+            <Route path='home' element={ user ? <AdminDashboard />:<Login />} />
+            <Route path='projects' element={ user ? <Projects />:<Navigate to={'../login'} /> } />
+            <Route path='skills' element={ user ? <AdminSkills />:<Navigate to={'../login'} />} />
+            <Route path='about' element={ user ? <AboutMe />:<Navigate to={'../login'} />} />
+          <Route path='messages' element={ user ? <Messages />:<Navigate to={'../login'} />} />
+        </Route>    
 
-          <Route path='/admin' element={ user ? <AdminDashboard />:<Login />} />
-          <Route path='/admin/projects' element={ user ? <Projects />:<Login />} />
-          <Route path='/admin/skills' element={ user ? <AdminSkills />:<Login />} />
-          <Route path='/admin/about' element={ user ? <AboutMe />:<Login />} />
-          <Route path='/admin/messages' element={ user ? <Messages />:<Login />} />
-      </Routes>
-    </BrowserRouter>
+      </Route>
+    )
+  )
 
-  </>
+
+  return (
+  <RouterProvider router={router} />
   );
 }
 
