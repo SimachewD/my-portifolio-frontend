@@ -15,6 +15,7 @@ import AboutMe from './admin/pages/AboutMe';
 import Messages from './admin/pages/Messages';
 import NavBar from './admin/components/NavBar';
 import { useAuthContext } from './admin/hooks/useAuthContext';
+import NotFound from './NotFound';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
 
   const router = createBrowserRouter(
     createRoutesFromElements(
+      <Route>
       <Route path='/my-portifolio-frontend'>
         <Route index element={
               <div className="flex flex-col md:grid md:grid-cols-4 md:gap-4 bg-slate-50 ">
@@ -44,8 +46,10 @@ function App() {
             <Route path='skills' element={ user ? <AdminSkills />:<Navigate to={'../login'} />} />
             <Route path='about' element={ user ? <AboutMe />:<Navigate to={'../login'} />} />
           <Route path='messages' element={ user ? <Messages />:<Navigate to={'../login'} />} />
-        </Route>    
+        </Route>
 
+        </Route>
+        <Route path='*' element = { <NotFound /> } />    
       </Route>
     )
   )
