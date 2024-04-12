@@ -54,7 +54,7 @@ const AdminSkills = () => {
     try {
       const response = await fetch(`https://my-first-service-h7ag.onrender.com/sime/api/addskill`, {
         method: 'POST',
-        headers: { Authorization:`Bearer ${user.token}` },
+        headers: { 'Content-Type': 'application/json', Authorization:`Bearer ${user.token}` },
         body: JSON.stringify(newSkill)
       });
       if (!response.ok) {
@@ -156,7 +156,7 @@ const AdminSkills = () => {
               </div>
             )}
             getOptionValue={(option) => option.value}
-            className="w-full" required
+            className="w-full" 
           />
         </div>
 

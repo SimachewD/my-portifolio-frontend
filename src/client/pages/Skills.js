@@ -3,6 +3,7 @@ import { FaHtml5, FaCss3, FaReact, FaBootstrap, FaPhp, FaNodeJs, FaGit, FaJava }
 
 const Skills = () => {
     const [skills, setSkills] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     const fetchSkills = async () => {
         try {
@@ -17,6 +18,8 @@ const Skills = () => {
             }
         } catch (error) {
             console.error("Fetch error:", error);
+        } finally{
+            setLoading(false);
         }
     };
 
@@ -62,6 +65,8 @@ const Skills = () => {
                         ))}
                     </div>
                 </div>
+
+                {loading && ( <><p className='text-center text-3xl'>Loading...</p><p className='text-center text-orange-600 text-2xl'>Please wait a moment, It's a free hosting...</p></>)}
 
             </div>
         </div>

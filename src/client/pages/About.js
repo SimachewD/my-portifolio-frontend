@@ -6,6 +6,7 @@ import profile from '../../img/profile.jpg';
 const About = () => {
     
     const [about, setAbout] = useState();
+    const [loading, setLoading] = useState(true);
 
     const fetchAbout = async () => {
         try {
@@ -20,6 +21,8 @@ const About = () => {
             }
         } catch (error) {
             console.error("Fetch error:", error);
+        } finally{
+            setLoading(false);
         }
     };
 
@@ -63,6 +66,9 @@ const About = () => {
 
                 </>
                 }
+
+                {loading && ( <><p className='text-center text-3xl'>Loading...</p><p className='text-center text-orange-600 text-2xl'>Please wait a moment, It's a free hosting...</p></>)}
+
 
             </div>
         </div>

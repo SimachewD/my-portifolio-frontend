@@ -50,7 +50,7 @@ const Home = () => {
                 )} 
             </section>
 
-            {loading && ( <p className='text-center text-3xl'>Loading...</p>)}
+            {loading && ( <><p className='text-center text-3xl'>Loading...</p><p className='text-center text-orange-600 text-2xl'>Please wait a moment, It's a free hosting...</p></>)}
 
             { projects.length===0 && !loading ? (
                 <h1 className="text-center mb-8 text-red-600">There are no projects at the moment</h1>
